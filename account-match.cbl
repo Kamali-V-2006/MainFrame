@@ -1,0 +1,45 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ACCOUNT-MATCH.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 M PIC 9(5).
+       01 N PIC 9(5).
+       01 I PIC 9(5).
+       01 J PIC 9(5).
+       01 MASTER-TABLE.
+           05 MASTER-ACCOUNT PIC X(9) OCCURS 5000 TIMES.
+       01 TRANS-ID PIC X(9).
+       01 ACC-ID PIC X(9).
+       01 AMT PIC 9(6).
+       01 INPUT-RECORD PIC X(100).
+       01 FLAG PIC 9 VALUE 0.
+       PROCEDURE DIVISION.
+         ACCEPT M.
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I>M
+           ACCEPT MASTER-ACCOUNT(I)          
+           END-PERFORM.
+
+         ACCEPT N.
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I>N
+           ACCEPT INPUT-RECORD
+
+           UNSTRING INPUT-RECORD DELIMITED BY ALL SPACE 
+           INTO TRANS-ID ACC-ID AMT 
+           END-UNSTRING 
+           MOVE 0 TO FLAG
+           PERFORM VARYING J FROM 1 BY 1 UNTIL J>M
+            IF ACC-ID = MASTER-ACCOUNT(J)
+            MOVE 1 TO FLAG 
+            END-IF
+           END-PERFORM
+           IF FLAG = 1
+           DISPLAY FUNCTION TRIM(TRANS-ID) " MATCHED"
+           ELSE 
+           DISPLAY FUNCTION TRIM(TRANS-ID) " UNMATCHED"
+           END-IF
+           END-PERFORM.
+           STOP RUN.    
+
+
+      
