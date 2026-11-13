@@ -1,0 +1,18 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MAINSTATIC.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 WS-NUMBER PIC 9(5) VALUE 30000.
+       01 WS-RESULT PIC 9(5).
+
+       PROCEDURE DIVISION.
+
+           CALL "BONUS-CALC"
+               USING WS-NUMBER WS-RESULT.
+
+           DISPLAY "BONUS: " WS-RESULT.
+
+           STOP RUN.
+           
