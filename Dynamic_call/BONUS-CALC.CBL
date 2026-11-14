@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. BONUS-CALC.
+
+       DATA DIVISION.
+       LINKAGE SECTION.
+
+       01 LS-SALARY PIC 9(5).
+       01 LS-BONUS PIC 9(5).
+
+       PROCEDURE DIVISION USING LS-SALARY LS-BONUS.
+
+           COMPUTE LS-BONUS = LS-SALARY * 10 / 100.
+
+           GOBACK.
+           
