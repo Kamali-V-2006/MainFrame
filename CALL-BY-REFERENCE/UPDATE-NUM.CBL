@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. UPDATE-NUM.
+
+       DATA DIVISION.
+       LINKAGE SECTION.
+
+       01 LS-NUMBER PIC 99.
+
+       PROCEDURE DIVISION USING LS-NUMBER.
+
+           ADD 5 TO LS-NUMBER.
+
+           GOBACK.
+           
