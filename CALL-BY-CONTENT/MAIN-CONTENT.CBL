@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MAINCONTENT.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 WS-NUMBER PIC 99 VALUE 10.
+
+       PROCEDURE DIVISION.
+
+           CALL "UPDATE-NUM"
+               USING BY CONTENT WS-NUMBER.
+
+           DISPLAY "AFTER CALL: " WS-NUMBER.
+
+           STOP RUN.
+           
