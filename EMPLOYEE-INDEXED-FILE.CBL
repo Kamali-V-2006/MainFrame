@@ -28,7 +28,7 @@
 
        PROCEDURE DIVISION.
 
-       MAIN-PARA.
+   
 
            OPEN OUTPUT EMPLOYEE-FILE.
 
